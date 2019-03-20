@@ -9,12 +9,11 @@ import org.kd.model.Board
 import org.kd.model.PongSide
 
 class Drawer(private var gc: GraphicsContext) : GraphOutput {
-
-    private val BALL_COLOR: Color = Color.GREEN
-    private val BACKGROUND_COLOR: Color = Color.WHITE
-    private val BLUEBAT_COLOR: Color = Color.BLUE
-    private val REDBAT_COLOR: Color = Color.RED
-    private val BOARD_COLOR: Color = Color.AQUAMARINE
+    private val ballColor: Color = Color.GREEN
+    private val backgroundColor: Color = Color.WHITE
+    private val blueBatColor: Color = Color.BLUE
+    private val redBatColor: Color = Color.RED
+    private val boardColor: Color = Color.AQUAMARINE
 
     override fun writeGameOver() {
         println("\nGame over.\n")
@@ -26,27 +25,32 @@ class Drawer(private var gc: GraphicsContext) : GraphOutput {
     }
 
     override fun draw(ball: Ball) {
-        gc.fill = BALL_COLOR
+        gc.fill = ballColor
         gc.fillOval(ball.x - ball.size / 2, ball.y - ball.size / 2, ball.size, ball.size)
-        gc.fill = BACKGROUND_COLOR
+        gc.fill = backgroundColor
     }
 
     override fun draw(bat: Bat) {
         val batColor: Color = if (bat.pongSide == PongSide.BLUE)
-            BLUEBAT_COLOR
-        else REDBAT_COLOR
+            blueBatColor
+        else redBatColor
 
         gc.fill = batColor
         gc.fillRect(bat.x - 2, bat.y - bat.height / 2, 4.0, bat.height)
-        gc.fill = BACKGROUND_COLOR
+        gc.fill = backgroundColor
     }
 
     override fun draw(board: Board) {
         val offset = 0.0
-        gc.fill = BOARD_COLOR
+        gc.fill = boardColor
         gc.fillRect(offset, offset, board.sizeX - offset, board.sizeY - offset)
-        gc.fill = BOARD_COLOR
+        gc.fill = boardColor
         gc.rect(0.0, 0.0, board.sizeX, board.sizeY)
     }
 
+    override fun writeControlsInfo() {
+        println("Welcome to PONG")
+        println("Controls: a,z - Red Bat; p,l - Blue Bat")
+        println("Demo mode. Press any key to start")
+    }
 }

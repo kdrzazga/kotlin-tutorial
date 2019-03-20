@@ -1,6 +1,6 @@
 package org.kd.model
 
-class Ball(var x: Double , var y: Double) {
+class Ball(var x: Double, var y: Double) {
 
     val size: Double = 15.0
     private var velocity: VelocityVector = VelocityVector(2.0, Math.PI / 4)

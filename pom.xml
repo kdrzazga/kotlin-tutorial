@@ -8,4 +8,5 @@
         <module>tutorial</module>
         <module>pong</module>
     </modules>
+    <artifactId>kotlin-tutorial</artifactId>
 </project>

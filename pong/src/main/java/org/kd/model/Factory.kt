@@ -5,16 +5,16 @@ import org.kd.common.GraphOutput
 
 object Factory {
 
-    fun createGame(controlInput: ControlInput, output: GraphOutput): Game {
+    fun createGame(output: GraphOutput): Game {
 
-        val game = Game(controlInput, output)
+        val game = Game(output)
         game.board = createBoard()
 
         return game
     }
 
     fun createBoard(): Board {
-        var board = Board(600.0, 400.0)
+        val board = Board(600.0, 400.0)
 
         board.redBat = Bat(10.0, 300.0, 60.0, PongSide.RED)
         board.blueBat = Bat(590.0, 280.0, 60.0, PongSide.BLUE)

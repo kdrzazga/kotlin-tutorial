@@ -4,7 +4,7 @@ class VelocityVector(private var speed: Double, var angle: Double) {
 
     fun moveX(x: Double, time: Double): Double {
 
-        var distance = speed * time
+        val distance = speed * time
         return x + distance * Math.cos(angle)
     }
 

@@ -8,7 +8,7 @@ import java.util.*
 class KeyInput : ControlInput {
 
     override fun getBoardMethod(key: Char): Method? {
-        try {
+        return try {
             val characterMethodMap = Hashtable<Char, Method>()
 
             characterMethodMap['a'] = Board::class.java.getMethod("moveRedBatUp")
@@ -16,11 +16,11 @@ class KeyInput : ControlInput {
             characterMethodMap['p'] = Board::class.java.getMethod("moveBlueBatUp")
             characterMethodMap['l'] = Board::class.java.getMethod("moveBlueBatDown")
 
-            return characterMethodMap.get(key.toLowerCase())
+            characterMethodMap[key.toLowerCase()]
 
         } catch (e: NoSuchMethodException) {
             e.printStackTrace()
-            return null
+            null
         }
     }
 }

@@ -31,17 +31,17 @@ public class KeyInputTest {
         Method boardMethod = keyInput.getBoardMethod(key);
 
         Map<Character, Double> expectedRedBatY = Map.of(
-                'a', Double.valueOf(56f),
-                'Z', Double.valueOf(64f),
-                'p', Double.valueOf(40f),
-                'L', Double.valueOf(40f)
+                'a', (double) 56f,
+                'Z', (double) 64f,
+                'p', (double) 40f,
+                'L', (double) 40f
         );
 
         Map<Character, Double> expectedBlueBatY = Map.of(
-                'a', Double.valueOf(40f),
-                'Z', Double.valueOf(40f),
-                'p', Double.valueOf(36f),
-                'L', Double.valueOf(44f)
+                'a', (double) 40f,
+                'Z', (double) 40f,
+                'p', (double) 36f,
+                'L', (double) 44f
         );
 
         var board = new Board(100, 100);

@@ -12,7 +12,9 @@ interface GraphOutput {
 
     fun draw(bat: Bat)
 
-    fun writeGameOver()
+    fun writeControlsInfo()
 
     fun writeGameStarted()
+
+    fun writeGameOver()
 }

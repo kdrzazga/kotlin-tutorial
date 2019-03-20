@@ -18,7 +18,7 @@ class MutableStack<E>(vararg items: E) {              // 1
 }
 
 fun main(args: Array<String>) {
-    var stack: MutableStack<Int> = MutableStack()
+    val stack: MutableStack<Int> = MutableStack()
 
     stack.push(100)
     stack.push(200)
