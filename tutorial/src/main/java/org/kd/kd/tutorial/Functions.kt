@@ -1,4 +1,4 @@
-package org.kd.tutorial
+package org.kd.kd.tutorial
 
 fun printMessage(message: String) {                               // 1
     println(message)

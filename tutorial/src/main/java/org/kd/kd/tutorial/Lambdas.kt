@@ -1,4 +1,4 @@
-package org.kd.tutorial
+package org.kd.kd.tutorial
 
 // All examples create a function object that performs upper-casing.
 // So it's a function from String to String

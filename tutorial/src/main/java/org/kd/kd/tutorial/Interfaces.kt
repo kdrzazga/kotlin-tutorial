@@ -1,4 +1,4 @@
-package org.kd.tutorial
+package org.kd.kd.tutorial
 
 interface SoundBehavior {                                                          // 1
     fun makeSound()

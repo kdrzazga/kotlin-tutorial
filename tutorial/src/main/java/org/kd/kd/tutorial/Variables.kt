@@ -1,4 +1,4 @@
-package org.kd.tutorial
+package org.kd.kd.tutorial
 
 fun main(args: Array<String>){
     var a = "initial"  // 1

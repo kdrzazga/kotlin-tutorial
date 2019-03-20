@@ -1,4 +1,4 @@
-package org.kd.tutorial
+package org.kd.kd.tutorial
 
 class Customer                                  // 1
 
