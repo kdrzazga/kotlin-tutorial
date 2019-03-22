@@ -7,6 +7,7 @@
     <modules>
         <module>tutorial</module>
         <module>pong</module>
+        <module>kotlinvaders</module>
     </modules>
     <artifactId>kotlin-tutorial</artifactId>
 </project>

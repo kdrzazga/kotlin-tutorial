@@ -2,4 +2,4 @@ Modules:
 
 tutorial - Kotlin Tutorial with basic features
 
-pong - simple game in Kotlin + JavaFx10
+pong, kotlinvaders - simple games in Kotlin with JavaFx10

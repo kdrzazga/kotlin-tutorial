@@ -1,17 +1,21 @@
 package org.kd.model
 
 import org.kd.common.GraphOutput
+import java.util.function.Consumer
+import java.util.function.Predicate
 
-class Game( private var output: GraphOutput) : Thread() {
+class Game(private var output: GraphOutput) : Thread() {
 
     lateinit var board: Board//init in factory
     private var running: Boolean = false
 
     override fun run() {
+        board.bat.bullet.start()//starts thread, doesn't fire bullet
 
         while (true) {
-            sleep(20)
-            moveBall()
+            sleep(Settings.animationDelay)
+            moveAliens()
+
             if (running)
                 checkCollisions()
             draw()
@@ -20,13 +24,19 @@ class Game( private var output: GraphOutput) : Thread() {
 
     private fun draw() {
         output.draw(board)
-        output.draw(board.redBat)
-        output.draw(board.blueBat)
-        output.draw(board.ball)
+        output.draw(board.bat)
+
+        for (alien in board.aliens) {
+            output.draw(alien)
+        }
+
+        output.draw(board.bat.bullet)
     }
 
     fun startGame() {
+
         this.running = true
+        board.enableAllAliens()
         output.writeGameStarted()
     }
 
@@ -36,25 +46,23 @@ class Game( private var output: GraphOutput) : Thread() {
 
     private fun stopGame() {
         this.running = false
+
         output.writeGameOver()
     }
 
-    private fun moveBall() {
-        board.moveBall(this.running)
+    private fun moveAliens() {
+        board.moveAliens(this.running)
     }
 
     private fun checkCollisions() {
         if (this.running) {
-            if (board.detectRedBatDeflection() || board.detectBlueBatDeflection())
-                board.deflectBallVertically()
-            else
-                if (board.detectVerticalDeflection())
-                    score()
+            board.aliens.stream()
+                    .filter { alien -> alien.isHit(board.bat.bullet)}
+                    .forEach(Alien::kill)
         }
     }
 
     private fun score() {
-        board.resetBall()
-        stopGame()
+        //TODO
     }
 }

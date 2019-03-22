@@ -40,7 +40,7 @@ class Board(var sizeX: Double, var sizeY: Double) {
         ball.reset()
     }
 
-    //4 move functions below are used by REFLECTION
+    //4 move functions below are called by REFLECTION
     fun moveRedBatUp() {
         if (redBat.y > batMoveStep)
             redBat.y -= batMoveStep
